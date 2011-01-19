@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ffi-locale}
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Krzysztof Zych"]
@@ -14,16 +14,18 @@ Gem::Specification.new do |s|
   s.email = %q{krzysztof.zych@redefine.pl}
   s.extra_rdoc_files = [
     "LICENSE.txt",
-    "README.rdoc"
+    "README.md"
   ]
   s.files = [
     ".document",
     "Gemfile",
     "LICENSE.txt",
-    "README.rdoc",
+    "README.md",
     "Rakefile",
     "VERSION",
+    "ffi-locale.gemspec",
     "lib/ffi-locale.rb",
+    "lib/ffi-locale/ffi-locale.rb",
     "test/helper.rb",
     "test/test_ffi-locale.rb"
   ]
