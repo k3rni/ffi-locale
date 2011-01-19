@@ -1,12 +1,12 @@
 ffi-locale
-----------
+==========
 
 A small gem to aid with locale-sensitive string comparison (collation), which ruby lacks by default. Roughly based on
 Matz' [rather ancient code](http://www.justskins.com/forums/ruby-talk-newbie-locale-8419.html). However, instead of creating a
 wrapper around these functions, I call them using FFI.
 
 Scope
-=====
+-----
 
 Everything this library does could be accomplished by adding two functions to [ffi-libc](https://github.com/postmodern/ffi-libc).
 However, I didn't need any of the extra bindings ffi-libc would bring, and decided to separate the functionality.
@@ -18,7 +18,7 @@ The library offers only 3 functions, all of them thin wrappers over libc functio
 * getlocaleinfo, built on top of setlocale
 
 Usage
-=====
+-----
 
 Install the gem, or add to your Gemfile.
 
@@ -31,7 +31,7 @@ Install the gem, or add to your Gemfile.
     ["l", "ł", "m"]
 
 Not implemented
-===============
+---------------
 
 * Extensions to String class, to facilitate collation.
 * Altering default String sort order. Bad idea - won't be implemented.
@@ -39,7 +39,7 @@ Not implemented
   blocks to `sort` and `sort_by` solves the issue (see above).
      
 Copyright
-=========
+---------
 
 Copyright (c) 2011 Krzysztof Zych. See LICENSE.txt for
 further details.
