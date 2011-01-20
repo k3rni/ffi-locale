@@ -9,8 +9,10 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Krzysztof Zych"]
-  s.date = %q{2011-01-19}
-  s.description = %q{TODO: longer description of your gem}
+  s.date = %q{2011-01-20}
+  s.description = %q{Introduces C library's setlocale and strcoll functions in a thin
+  FFI wrapper.
+  }
   s.email = %q{krzysztof.zych@redefine.pl}
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -33,7 +35,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{TODO: one-line summary of your gem}
+  s.summary = %q{FFI wrapper over glibc locale functions}
   s.test_files = [
     "test/helper.rb",
     "test/test_ffi-locale.rb"
