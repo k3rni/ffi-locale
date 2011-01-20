@@ -15,8 +15,10 @@ Jeweler::Tasks.new do |gem|
   gem.name = "ffi-locale"
   gem.homepage = "http://github.com/k3rni/ffi-locale"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{FFI wrapper over glibc locale functions}
+  gem.description = %Q{Introduces C library's setlocale and strcoll functions in a thin
+  FFI wrapper.
+  }
   gem.email = "krzysztof.zych@redefine.pl"
   gem.authors = ["Krzysztof Zych"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,

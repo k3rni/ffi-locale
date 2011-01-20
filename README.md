@@ -2,8 +2,8 @@ ffi-locale
 ==========
 
 A small gem to aid with locale-sensitive string comparison (collation), which ruby lacks by default. Roughly based on
-Matz' [rather ancient code](http://www.justskins.com/forums/ruby-talk-newbie-locale-8419.html). However, instead of creating a
-wrapper around these functions, I call them using FFI.
+Matz' [rather ancient code](http://www.justskins.com/forums/ruby-talk-newbie-locale-8419.html). 
+However, instead of creating a wrapper around these functions, I call them using FFI.
 
 Scope
 -----
