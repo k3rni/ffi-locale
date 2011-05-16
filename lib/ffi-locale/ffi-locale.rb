@@ -4,7 +4,7 @@ module FFILocale
   ffi_lib 'c'
 
   attach_function :strcoll, [:pointer, :pointer], :int
-  attach_function :setlocale, [:int, :string], :string
+  attach_function :setlocale, [:int, :pointer], :string
 
   LC_CTYPE,
   LC_NUMERIC,
