@@ -3,7 +3,7 @@ module FFILocale
   extend ::FFI::Library
   ffi_lib 'c'
 
-  attach_function :strcoll, [:string, :string], :int
+  attach_function :strcoll, [:pointer, :pointer], :int
   attach_function :setlocale, [:int, :string], :string
 
   LC_CTYPE,
