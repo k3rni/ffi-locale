@@ -5,7 +5,7 @@ source "http://rubygems.org"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
-gem 'ffi', '= 1.0.7'
+gem 'ffi', '>= 1.0.7'
 
 group :development do
   gem "shoulda", ">= 0"
