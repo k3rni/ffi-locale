@@ -17,6 +17,21 @@ The library offers only 3 functions, all of them thin wrappers over libc functio
 * [setlocale](http://www.gnu.org/software/libc/manual/html_node/Setting-the-Locale.html)
 * getlocaleinfo, built on top of setlocale
 
+Audience
+--------
+
+You don't need ffi-locale if you:
+
+* are using your ORM & RDBMS to sort strings - [both](http://www.postgresql.org/docs/9.2/static/collation.html) [major](http://dev.mysql.com/doc/refman/5.0/en/charset-table.html) opensource DBs have had good or decent support for years
+* will only ever be using [ASCII](https://github.com/pda/roflbalt)
+* think [i18n](http://github.com/svenfuchs/i18n) is only about translating some messages
+
+You need ffi-locale if you:
+
+* are OCD about [proper sorting](http://www.unicode.org/reports/tr10/)
+* process messy textual data from third-party sources
+* keep your strings in a [byte-oriented](http://redis.io/) or otherwise [localization-oblivious](http://docs.mongodb.org/manual/core/document/#string) storage
+
 Usage
 -----
 
