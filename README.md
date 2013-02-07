@@ -56,6 +56,6 @@ Not implemented
 Copyright
 ---------
 
-Copyright (c) 2011 Krzysztof Zych. See LICENSE.txt for
+Copyright © 2011-2013 Krzysztof Zych. See LICENSE.txt for
 further details.
 
