@@ -7,6 +7,8 @@ module FFILocale
   attach_function :setlocale, [:int, :pointer], :string
   attach_function :strxfrm_C, :strxfrm, [:buffer_out, :string, :int], :int
 
+  # NOTE: these are taken from /usr/include/locale.h on Linux
+  # No guarantees they are the same on other OS'es or non-glibc systems.
   LC_CTYPE,
   LC_NUMERIC,
   LC_TIME,
