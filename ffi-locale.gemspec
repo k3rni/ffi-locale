@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 1.9'
 
   s.add_runtime_dependency 'ffi', '>= 1.0.7'
+  s.add_development_dependency 'minitest', '>= 5.7'
   s.add_development_dependency 'simplecov'
   s.add_development_dependency 'rake'
 end
