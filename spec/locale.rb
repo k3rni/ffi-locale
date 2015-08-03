@@ -14,7 +14,9 @@ describe 'FFILocale' do
     info = FFILocale.getlocaleinfo
     info.wont_be_nil
     info.must_be_kind_of(Hash)
-    (info.keys & locale_keys).wont_be_empty
+    locale_keys.each do |key|
+      info.must_include key
+    end
   end
 
   specify 'return new locale after setting' do
