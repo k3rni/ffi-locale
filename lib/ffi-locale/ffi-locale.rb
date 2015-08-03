@@ -1,4 +1,3 @@
-
 module FFILocale
   extend ::FFI::Library
   ffi_lib 'c'
@@ -7,7 +6,7 @@ module FFILocale
   attach_function :setlocale, [:int, :pointer], :string
   attach_function :strxfrm_C, :strxfrm, [:buffer_out, :string, :int], :int
 
-  # NOTE: these are taken from /usr/include/locale.h on Linux
+  # NOTE: these values are taken from /usr/include/locale.h on Ubuntu Linux
   # No guarantees they are the same on other OS'es or non-glibc systems.
   LC_CTYPE,
   LC_NUMERIC,
@@ -25,7 +24,7 @@ module FFILocale
 
   def self.getlocaleinfo
     info = setlocale LC_ALL, nil
-    Hash[info.split(';').map { |s| name, val = s.split('='); [name.to_sym, val]}]
+    locale_hash(info)
   end
 
   def self.strxfrm(src)
@@ -36,5 +35,22 @@ module FFILocale
       result = dest.read_string
     end
     result
+  end
+
+  private
+
+  def self.locale_hash(info)
+    if info =~ /(LC_[A-Z]+=.*(?:;|$))+/
+      Hash[info.split(';').map do |pair|
+        name, val = pair.split('=')
+        [name.to_sym, val]
+      end]
+    else
+      # When the process environment didn't have any LC_ variables set, setlocale
+      # might return a plain locale name. In this case use it for every setting.
+      Hash[self.constants.map do |lc|
+        [lc, info]
+      end]
+    end
   end
 end
