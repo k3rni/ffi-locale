@@ -22,4 +22,11 @@ class TestFfiLocale < Test::Unit::TestCase
     sorted = letters.sort { |a, b| FFILocale::strcoll a, b }
     assert_equal sorted, %w(a ą b c ć d e ę f l ł m n ń o ó s ś t z ź ż)
   end
+
+  should "perform sorting by collation" do
+    strings = %w(Ágnes Andor Cecil Cvi Csaba Elemér Éva Géza Gizella György Győző Lóránd Lotár Lőrinc Lukács Orsolya Ödön Ulrika Üllő)
+    FFILocale::setlocale FFILocale::LC_COLLATE, 'hu-HU.UTF8'
+    sorted = strings.shuffle.sort_by{|s| FFILocale::strxfrm(s)}
+    assert_equal sorted, strings
+  end
 end
