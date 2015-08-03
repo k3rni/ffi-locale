@@ -13,6 +13,7 @@ describe 'FFILocale' do
   let(:names) { %w(Ágnes Andor Cecil Cvi Csaba Elemér Éva Géza Gizella György Győző Lóránd Lotár Lőrinc Lukács Orsolya Ödön Ulrika Üllő) }
 
   before do
+    puts "Restoring #{boot_locale} in #{self.name}"
     FFILocale.setlocale FFILocale::LC_ALL, boot_locale
   end
 
