@@ -49,7 +49,7 @@ module FFILocale
       # When the process environment didn't have any LC_ variables set, setlocale
       # might return a plain locale name. In this case use it for every setting.
       Hash[self.constants.map do |lc|
-        [lc, info]
+        [lc.to_sym, info]
       end]
     end
   end
