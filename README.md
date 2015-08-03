@@ -43,7 +43,13 @@ Alternatives
 Installation
 -----
 
-Install the gem, or add to your Gemfile.
+Add this line to your `Gemfile`:
+
+```ruby
+gem 'ffi-locale', github: 'k3rni/ffi-locale'
+```
+
+You **need to install the GitHub version** of this gem, because it was never pushed to RubyGems due to naming conflicts. RubyGems has [seanohalpin's very similar gem](https://github.com/seanohalpin/ffi-locale) under this name. Check for that before reporting errors.
 
 Usage
 -----
