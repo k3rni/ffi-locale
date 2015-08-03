@@ -18,19 +18,19 @@ describe 'FFILocale' do
   end
 
   specify 'return new locale after setting' do
-    newlocale = FFILocale.setlocale FFILocale::LC_ALL, 'pl_PL.UTF8'
-    newlocale.must_equal('pl_PL.UTF8')
+    newlocale = FFILocale.setlocale FFILocale::LC_ALL, 'pl_PL.UTF-8'
+    newlocale.must_equal('pl_PL.UTF-8')
   end
 
   specify 'know the Polish ABC' do
     letters = %w(z ś a ł t m ż o ą n ę s f ć d e ń c ź b ó l)
-    FFILocale.setlocale FFILocale::LC_ALL, 'pl_PL.UTF8'
+    FFILocale.setlocale FFILocale::LC_ALL, 'pl_PL.UTF-8'
     sorted = letters.sort { |a, b| FFILocale.strcoll a, b }
     sorted.must_equal(alphabet_pl)
   end
 
   specify 'perform sorting by collation' do
-    FFILocale.setlocale FFILocale::LC_COLLATE, 'hu_HU.UTF8'
+    FFILocale.setlocale FFILocale::LC_COLLATE, 'hu_HU.UTF-8'
     sorted = names.dup.shuffle.sort_by { |s| FFILocale.strxfrm(s) }
     sorted.must_equal(names)
   end
