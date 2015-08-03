@@ -32,6 +32,13 @@ You need ffi-locale if you:
 * process messy textual data from third-party sources
 * keep your strings in a [byte-oriented](http://redis.io/) or otherwise [localization-oblivious](http://docs.mongodb.org/manual/core/document/#string) storage
 
+Alternatives
+------------
+
+* [twitter_cldr](https://github.com/twitter/twitter-cldr-rb#sorting-collation) offers the same functionality, and much, much more.
+* [ICU](https://github.com/jarib/ffi-icu) has collation, encoding detection and more.
+* [sort-alphabetical](http://github.com/grosser/sort_alphabetical) does a kind of collation that sorts accented letters same as their non-accented counterparts. It's not proper locale-sensitive collation, but might fit your needs.
+
 Usage
 -----
 
@@ -51,11 +58,12 @@ Not implemented
 * Extensions to String class, to facilitate collation.
 * Altering default String sort order. Bad idea - won't be implemented.
 * Extensions to Array or Enumerable, to add or alter sort methods. Unnecessary, because passing 
-  blocks to `sort` and `sort_by` solves the issue (see above).
+  blocks to `sort` and `sort_by` solves the issue (see example above).
+* Not tested beyond Linux. Patches are welcome.
      
 Copyright
 ---------
 
-Copyright © 2011-2013 Krzysztof Zych. See LICENSE.txt for
+Copyright © 2011-2015 Krzysztof Zych. See LICENSE.txt for
 further details.
 
