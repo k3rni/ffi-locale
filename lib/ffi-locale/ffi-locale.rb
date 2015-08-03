@@ -22,15 +22,15 @@ module FFILocale
   LC_IDENTIFICATION = (0..12).to_a
 
   def self.getlocaleinfo
-    info = self.setlocale LC_ALL, nil
+    info = setlocale LC_ALL, nil
     Hash[info.split(';').map { |s| name, val = s.split('='); [name.to_sym, val]}]
   end
 
   def self.strxfrm(src)
-    length = self.strxfrm_C(nil, src, 0)
+    length = strxfrm_C(nil, src, 0)
     result = ""
     FFI::MemoryPointer.new(length+1) do |dest|
-      self.strxfrm_C(dest, src, length)
+      strxfrm_C(dest, src, length)
       result = dest.read_string
     end
     result
