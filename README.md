@@ -58,27 +58,27 @@ Usage
 
 ##### `strcoll` approach (individual string comparison: transformation and comparison in one step):
 
-    irb> FFILocale::setlocale FFILocale::LC_COLLATE, 'pl_PL.UTF8'
-    irb> FFILocale::strcoll "łyk", "myk"
+    irb> FFILocale.setlocale FFILocale::LC_COLLATE, 'pl_PL.UTF8'
+    irb> FFILocale.strcoll "łyk", "myk"
     -1 # Correct collation order. In Polish alphabet, 'ł' comes between 'l' and 'm'.
     irb> "łyk" <=> "myk"
     1 # Incorrect collation. Correct with respect to Ruby semantics, which compares bytewise.
-    irb> %w(m l ł).sort { |a, b| FFILocale::strcoll a, b }
+    irb> %w(m l ł).sort { |a, b| FFILocale.strcoll a, b }
     ["l", "ł", "m"]
 
 ##### `strxfrm` approach (mass string sorting: bulk-transform first, then rely on Ruby built-in string comparison):
 
     irb> strings = %w(Ágnes Andor Cecil Cvi Csaba Elemér Éva Géza Gizella György Győző Lóránd Lotár Lőrinc Lukács Orsolya Ödön Ulrika Üllő)
-    irb> FFILocale::setlocale FFILocale::LC_COLLATE, 'hu-HU.UTF8'
-    irb> sorted = strings.shuffle.sort_by{|s| FFILocale::strxfrm(s)}
+    irb> FFILocale.setlocale FFILocale::LC_COLLATE, 'hu-HU.UTF8'
+    irb> sorted = strings.shuffle.sort_by{|s| FFILocale.strxfrm(s)}
     => ["Ágnes", "Andor", "Cecil", "Cvi", "Csaba", "Elemér", "Éva", "Géza", "Gizella", "György", "Győző", "Lóránd", "Lotár", "Lőrinc", "Lukács", "Orsolya", "Ödön", "Ulrika", "Üllő"]
     irb> sorted == strings
     true
 
 One advantage of using `strxfrm` with `sort_by` is performace: the collation transform is computed only once for each item; another is that `sort_by` makes it easier to sort by a compound value (e.g. multiple columns):
 
-    irb> FFILocale::setlocale FFILocale::LC_COLLATE, 'hu-HU.UTF8'
-    irb> [{name: "Ágnes", id: 789}, {name: "Andor", id: 456}, {name: "Ágnes", id: 123}].sort_by{|u| [FFILocale::strxfrm(u[:name]), u[:id]] }
+    irb> FFILocale.setlocale FFILocale::LC_COLLATE, 'hu-HU.UTF8'
+    irb> [{name: "Ágnes", id: 789}, {name: "Andor", id: 456}, {name: "Ágnes", id: 123}].sort_by{|u| [FFILocale.strxfrm(u[:name]), u[:id]] }
     => [{:name=>"Ágnes", :id=>123}, {:name=>"Ágnes", :id=>789}, {:name=>"Andor", :id=>456}]
 
 Not implemented
