@@ -5,7 +5,7 @@ A small gem to aid with locale-sensitive string comparison (collation), which ru
 Matz' [rather ancient code](http://www.justskins.com/forums/ruby-talk-newbie-locale-8419.html). 
 However, instead of creating a wrapper around these functions, I call them using FFI.
 
-[![Build Status](https://travis-ci.org/k3rni/ffi-locale.svg)](https://travis-ci.org/k3rni/ffi-locale) [![Dependency Status](https://gemnasium.com/k3rni/ffi-locale.svg)](https://gemnasium.com/k3rni/ffi-locale)
+[![Build Status](https://travis-ci.org/k3rni/ffi-locale.svg)](https://travis-ci.org/k3rni/ffi-locale) [![Dependency Status](https://gemnasium.com/k3rni/ffi-locale.svg)](https://gemnasium.com/k3rni/ffi-locale) [![Inline docs](http://inch-ci.org/github/k3rni/ffi-locale.svg?branch=master)](http://inch-ci.org/github/k3rni/ffi-locale)
 
 Scope
 -----
