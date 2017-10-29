@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'ffi-locale'
-  s.version = '0.2.2'
+  s.version = '1.0.0'
   s.platform = Gem::Platform::RUBY
   s.authors = `git log --format="%aN" | sort -u`.split("\n")
   s.email = 'k33rni@gmail.com'
@@ -8,7 +8,6 @@ Gem::Specification.new do |s|
   s.licenses = ['MIT']
 
   # git log --format='%aN' | sort -u
-  s.date = '2011-09-28'
   s.summary = 'FFI wrapper over glibc locale functions'
   s.description = "Introduces C library's setlocale and strcoll functions in a thin FFI wrapper."
   s.extra_rdoc_files = [
