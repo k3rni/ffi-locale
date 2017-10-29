@@ -5,9 +5,9 @@ module FFILocale
   extend ::FFI::Library
   ffi_lib 'c'
 
-  attach_function :strcoll, %i[pointer pointer], :int
-  attach_function :setlocale, %i[int pointer], :string
-  attach_function :strxfrm_C, :strxfrm, %i[buffer_out string int], :int
+  attach_function :strcoll, [:pointer, :pointer], :int
+  attach_function :setlocale, [:int, :pointer], :string
+  attach_function :strxfrm_C, :strxfrm, [:buffer_out, :string, :int], :int
 
   # NOTE: these values are taken from /usr/include/locale.h on Ubuntu Linux
   # No guarantees they are the same on other OS'es or non-glibc systems.

@@ -1,14 +1,15 @@
+# encoding: utf-8
 # frozen-string-literal: true
 
 require 'spec_helper'
 
 boot_locale = FFILocale.setlocale FFILocale::LC_ALL, nil
 
-describe 'FFILocale' do
+describe FFILocale do
   # NOTE: not a very useful test suite. All this functionality is provided by glibc and FFI, and it's useless to
   # test libraries you depend on.
   let(:locale_keys) do
-    %i[LC_CTYPE LC_COLLATE LC_MESSAGES]
+    %w[LC_CTYPE LC_COLLATE LC_MESSAGES]
   end
   let(:alphabet_pl) { %w[a ą b c ć d e ę f l ł m n ń o ó s ś t z ź ż] }
   let(:names) { %w[Ágnes Andor Cecil Cvi Csaba Elemér Éva Géza Gizella György Győző Lóránd Lotár Lőrinc Lukács Orsolya Ödön Ulrika Üllő] }
@@ -23,7 +24,7 @@ describe 'FFILocale' do
     info.wont_be_nil
     info.must_be_kind_of(Hash)
     locale_keys.each do |key|
-      info.must_include key
+      info.must_include key.to_sym
     end
   end
 
