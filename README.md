@@ -93,6 +93,6 @@ Not implemented
 Copyright
 ---------
 
-Copyright © 2011-2015 Krzysztof Zych. See LICENSE.txt for
+Copyright © 2011-2017 Krzysztof Zych. See LICENSE.txt for
 further details.
 
