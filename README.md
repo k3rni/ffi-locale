@@ -41,6 +41,7 @@ Alternatives
 * [twitter_cldr](https://github.com/twitter/twitter-cldr-rb#sorting-collation) offers the same functionality, and much, much more.
 * [ICU](https://github.com/jarib/ffi-icu) has collation, encoding detection and more.
 * [sort-alphabetical](http://github.com/grosser/sort_alphabetical) does a kind of collation that sorts accented letters same as their non-accented counterparts. It's not proper locale-sensitive collation, but might fit your needs.
+* [clocale](https://github.com/avdv/clocale) basically a clone of ffi-locale, but as a C Ruby extension which makes it work on non-GNU C libraries (BSD, Windows)
 
 Installation
 -----
